@@ -1,0 +1,247 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.containment {
+      display: grid;
+      grid-template-columns: 30% 70%;
+}
+.left-side {
+background-color: #fff;  margin: 10px;
+  height: 35vh;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px;
+
+}
+.right-side {
+  background-color: #f2f2f2;
+  margin: 10px;
+  height: 75vh auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px;
+}
+.title
+{
+  font-weight: 700;
+}
+body {
+  background: #a8c0ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3f2b96,
+    #a8c0ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3f2b96,
+    #a8c0ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.buttondiv
+{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.primary-button {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.522);
+  border-color: white;
+  color: #fff;
+  align-items: center;
+
+  &:hover,
+  &:focus {
+    background-color: darken(black, 10%);
+    border-color: darken(white, 10%);
+  }
+}
+
+.ant-card-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+
+  .anticon {
+    cursor: pointer;
+  }
+}
+
+/* Responsive Adjustments */
+
+@media (max-width: 768px) {
+  .App-logo {
+    height: 30vmin;
+  }
+
+  .App-header {
+    font-size: calc(10px + 1.5vmin);
+  }
+}
+
+@media (max-width: 480px) {
+  .App-logo {
+    height: 20vmin;
+  }
+
+  .App-header {
+    font-size: calc(10px + 1vmin);
+  }
+
+  .primary-button {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 600px) {
+      /* Change to a single column layout on smaller screens */
+      .containment {
+        grid-template-columns: 100%;
+      }
+    }
+
+  .input-field {
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+}
+
+
+.olcards,
+.olcards * {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.olcards {
+  list-style: none;
+  counter-reset: cardCount;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  --cardsGap: 1rem;
+  gap: var(--cardsGap);
+  padding-bottom: var(--cardsGap);
+}
+.olcards li {
+  counter-increment: cardCount;
+  display: flex;
+  color: white;
+  --labelOffset: 1rem;
+  --arrowClipSize: 1.5rem;
+  margin-top: var(--labelOffset);
+}
+
+.olcards li::before {
+  content: counter(cardCount, decimal-leading-zero);
+  background: white;
+  color: var(--cardColor);
+  font-size: 2em;
+  font-weight: 700;
+  transform: translateY(calc(-1 * var(--labelOffset)));
+  margin-right: calc(-1 * var(--labelOffset));
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 0.5em;
+}
+
+.olcards li .content {
+  background-color: var(--cardColor);
+  --inlinePadding: 1em;
+  --boxPadding: 0.5em;
+  display: grid;
+  padding: var(--boxPadding) calc(var(--inlinePadding) + var(--arrowClipSize))
+    var(--boxPadding) calc(var(--inlinePadding) + var(--labelOffset));
+  grid-template-areas:
+    "icon title"
+    "icon text";
+  gap: 0.25em 1em;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--arrowClipSize)) 0,
+    100% 50%,
+    calc(100% - var(--arrowClipSize)) 100%,
+    calc(100% - var(--arrowClipSize)) calc(100% + var(--cardsGap)),
+    0 calc(100% + var(--cardsGap))
+  );
+  position: relative;
+}
+.olcards li .content::before {
+  content: "";
+  position: absolute;
+  width: var(--labelOffset);
+  height: var(--labelOffset);
+  background: var(--cardColor);
+  left: 0;
+  bottom: 0;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  filter: brightness(0.75);
+}
+.olcards li .content::after {
+  content: "";
+  position: absolute;
+  height: var(--cardsGap);
+  width: var(--cardsGap);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.25), transparent 50%);
+  left: 0;
+  top: 100%;
+}
+.olcards li .icon {
+  grid-area: icon;
+  align-self: center;
+  font-size: 2em;
+}
+.olcards li .content .title {
+  grid-area: title;
+  font-size: 1.25em;
+  /* font-weight: 700; */
+}
+.olcards li .content .text {
+  grid-area: text;
+}
+
+
+.anticon-sty
+{
+  display: flex;
+  gap: 10px;
+}

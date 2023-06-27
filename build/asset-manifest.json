@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.dcdebe24.css",
+    "main.js": "/static/js/main.f92b2d4e.js",
+    "static/js/787.2843ca88.chunk.js": "/static/js/787.2843ca88.chunk.js",
+    "index.html": "/index.html",
+    "main.dcdebe24.css.map": "/static/css/main.dcdebe24.css.map",
+    "main.f92b2d4e.js.map": "/static/js/main.f92b2d4e.js.map",
+    "787.2843ca88.chunk.js.map": "/static/js/787.2843ca88.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dcdebe24.css",
+    "static/js/main.f92b2d4e.js"
+  ]
+}
